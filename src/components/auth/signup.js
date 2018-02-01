@@ -61,22 +61,10 @@ class Signup extends Component {
 
 function validate(formProps) {
   const errors = {};
-
-  if (!formProps.email) {
-    errors.email = 'Please enter an email';
-  }
-
-  if (!formProps.password) {
-    errors.password = 'Please enter a password';
-  }
-
-  if (!formProps.confirmPassword) {
-    errors.password = 'Please enter password again';
-  }
-
-  if (formProps.password !== formProps.confirmPassword) {
-    errors.password = "Passwords must match";
-  }
+  if (!formProps.email) { errors.email = 'Please enter an email'; }
+  if (!formProps.password) { errors.password = 'Please enter a password'; }
+  if (!formProps.confirmPassword) { errors.password = 'Please enter password again'; }
+  if (formProps.password !== formProps.confirmPassword) { errors.password = "Passwords must match"; }
 
   return errors
 }
