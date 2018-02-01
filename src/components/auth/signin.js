@@ -27,7 +27,7 @@ class Signin extends Component {
         {field.meta.touched && field.meta.error}
         <span>{field.meta.error}</span>
       </div>
-    )
+    );
 
     const { handleSubmit, fields: {email, password}} = this.props;
 
