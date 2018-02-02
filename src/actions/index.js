@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
-import {AUTH_USER, AUTH_ERROR, UNAUTH_USER, FETCH_MESSAGE} from './types';
+import {AUTH_USER, AUTH_ERROR, UNAUTH_USER, FETCH_MESSAGE, POST_TODO} from './types';
 
 const ROOT_URL = 'http://localhost:3090';
 
@@ -63,4 +63,14 @@ export function fetchMessage() {
         });
       });
   }
+}
+
+export function postTodo(values, callback) {
+  const request = axios.post(`${ROOT_URL}/newpost`, values)
+    .then(() => callback());
+
+    return {
+      type: POST_TODO,
+      payload: request
+    };
 }
