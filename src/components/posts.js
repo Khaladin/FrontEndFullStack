@@ -4,6 +4,12 @@ import {connect} from 'react-redux';
 import * as actions from '../actions';
 
 class NewPost extends Component {
+  constructor(props) {
+    super(props);
+
+    this.onSubmit = this.onSubmit.bind(this)
+  }
+
   renderField(field) {
     const {meta: {touched, error} } = field;
     const className = `form-group ${touched && error ? 'has-danger' : ''}`
@@ -28,7 +34,7 @@ class NewPost extends Component {
     const { handleSubmit, fields: { title, content }} = this.props;
 
     return (
-      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+      <form onSubmit={handleSubmit(this.onSubmit)}>
         <Field
           label="Title for Post"
           name="title"

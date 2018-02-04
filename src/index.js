@@ -14,6 +14,7 @@ import Feature from './components/feature';
 import RequireAuth from './components/auth/require_auth';
 import Welcome from './components/welcome';
 import NewPost from './components/posts';
+import DisplayPosts from './components/display_posts';
 import reducers from './reducers';
 import {AUTH_USER} from './actions/types';
 
@@ -31,11 +32,13 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={App}>
-        <IndexRoute component={NewPost} />
+        <IndexRoute component={Welcome} />
         <Route path="/signin" component={Signin} />
         <Route path="/signout" component={Signout} />
         <Route path="/signup" component={Signup} />
         <Route path="/feature" component={RequireAuth(Feature)} />
+        <Route path="/create/post" component={NewPost} />
+        <Route path="/display" component={DisplayPosts} />
       </Route>
     </Router>
   </Provider>
