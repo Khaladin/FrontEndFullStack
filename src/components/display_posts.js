@@ -32,7 +32,7 @@ class DisplayPosts extends Component {
             Add a Post!
           </Link>
         </div>
-        <h3>Posts</h3>
+        <h2 className="display-title">Posts</h2>
         <ul className="list-group">
           {this.renderPosts()}
         </ul>
