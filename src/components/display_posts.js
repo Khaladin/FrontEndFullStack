@@ -18,7 +18,8 @@ class DisplayPosts extends Component {
     return posts && posts.map( todos => {
       return (
         <li className="list-group-item" key={todos._id}>
-          {todos.content}
+          <div className="post-title">{todos.title}</div>
+          <div className="post-content">{todos.content}</div>
         </li>
       );
     });

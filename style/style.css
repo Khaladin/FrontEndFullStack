@@ -3,5 +3,30 @@
 }
 
 .display-title {
-  text-align: center;
+  text-align: left;
+  font-size: 2em;
+  padding-left: 30%;
+  padding-bottom: 20px;
+}
+
+.post-title {
+  text-align: left;
+  font-size: 1.5em;
+  padding-left: 20px;
+}
+
+.post-content {
+  text-align: left;
+  color: #012345;
+  padding-top: 5px;
+  font-size: 1.2em;
+}
+
+.form-group {
+  padding-right: 60%;
+}
+
+.btn-default {
+  position: absolute;
+  top: 18%%; left: 10%;
 }

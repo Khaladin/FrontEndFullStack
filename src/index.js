@@ -37,8 +37,8 @@ ReactDOM.render(
         <Route path="/signout" component={Signout} />
         <Route path="/signup" component={Signup} />
         <Route path="/feature" component={RequireAuth(Feature)} />
-        <Route path="/create/post" component={NewPost} />
-        <Route path="/display" component={DisplayPosts} />
+        <Route path="/create/post" component={RequireAuth(NewPost)} />
+        <Route path="/display" component={RequireAuth(DisplayPosts)} />
       </Route>
     </Router>
   </Provider>
