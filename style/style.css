@@ -30,3 +30,20 @@
   position: absolute;
   top: 18%%; left: 10%;
 }
+ .welcome-title {
+   text-align: center;
+   font-size: 2.6em;
+   padding-top: 5%;
+ }
+
+ .welcome-text {
+   margin-top: 6%;
+   font-size: 1.4em;
+ }
+
+.signout-text {
+  font-size: 2.7em;
+  text-align: center;
+  color: #012345;
+  margin-top: 20%;
+}
