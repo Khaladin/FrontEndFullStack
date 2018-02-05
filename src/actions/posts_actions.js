@@ -16,7 +16,6 @@ export function fetchPost() {
   return function(dispatch) {
   axios.get(`${ROOT_URL}/todos`)
     .then(response => {
-      debugger
       dispatch({
         type: FETCH_POST,
         payload: response.data.todos

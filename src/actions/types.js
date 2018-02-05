@@ -5,4 +5,6 @@ export const FETCH_MESSAGE = 'fetch_message';
 export const POST_TODO = 'post_todo';
 export const FETCH_POST = 'fetch_post';
 
-export const ROOT_URL = 'http://localhost:3090';
+export const ROOT_URL = 'https://sheltered-cove-40345.herokuapp.com';
+
+//'http://localhost:3090';
