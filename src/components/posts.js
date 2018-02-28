@@ -6,7 +6,7 @@ import * as actions from '../actions/posts_actions';
 
 class NewPost extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.onSubmit = this.onSubmit.bind(this)
   }
@@ -51,7 +51,7 @@ class NewPost extends Component {
           />
           <button type="submit" className="btn btn-primary">Submit</button>
         </form>
-        <Link className="btn btn-default" to="/display">
+        <Link className="back-button" to="/display">
           Back
         </Link>
       </div>

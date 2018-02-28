@@ -6,7 +6,7 @@ import * as actions from '../actions/posts_actions';
 
 class DisplayPosts extends Component {
   componentDidMount() {
-    this.props.fetchPost();
+    this.props.fetchPosts();
   }
 
 
@@ -14,12 +14,13 @@ class DisplayPosts extends Component {
   renderPosts() {
     const {posts} = this.props;
     console.log(this.props.posts);
-    console.log(this.props.posts);
     return posts && posts.map( todos => {
       return (
         <li className="list-group-item" key={todos._id}>
-          <div className="post-title">{todos.title}</div>
-          <div className="post-content">{todos.content}</div>
+          <Link to={`/display/${todos._id}`}>
+            <div className="post-title">{todos.title}</div>
+            <div className="post-content">{todos.content}</div>
+          </Link>
         </li>
       );
     });
@@ -35,7 +36,9 @@ class DisplayPosts extends Component {
         </div>
         <h2 className="display-title">Posts</h2>
         <ul className="list-group">
-          {this.renderPosts()}
+          <div>
+            {this.renderPosts()}
+          </div>
         </ul>
       </div>
     );

@@ -15,6 +15,7 @@ import RequireAuth from './components/auth/require_auth';
 import Welcome from './components/welcome';
 import NewPost from './components/posts';
 import DisplayPosts from './components/display_posts';
+import DisplayPost from './components/display_post';
 import reducers from './reducers';
 import {AUTH_USER} from './actions/types';
 
@@ -38,7 +39,9 @@ ReactDOM.render(
         <Route path="/signup" component={Signup} />
         <Route path="/feature" component={RequireAuth(Feature)} />
         <Route path="/create/post" component={RequireAuth(NewPost)} />
+        <Route path="/display/:id" component={DisplayPost} />
         <Route path="/display" component={RequireAuth(DisplayPosts)} />
+
       </Route>
     </Router>
   </Provider>
