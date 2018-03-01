@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
-import {POST_TODO, FETCH_POSTS, FETCH_POST, ROOT_URL} from './types';
+import {POST_TODO, FETCH_POSTS, FETCH_POST, ROOT_URL, DELETE_POST} from './types';
 
 export function postTodo(values, callback) {
   const request = axios.post(`${ROOT_URL}/newpost`, values)
@@ -36,13 +36,13 @@ export function fetchPost(id) {
   }
 }
 
-export function deletePost() {
+export function deletePost(id) {
   return function(dispatch) {
-    axios.delete(`${ROOT_URL}/todos/:id`)
+    axios.delete(`${ROOT_URL}/todos/${id}`)
     .then(response => {
       dispatch({
         type:DELETE_POST,
-        payload:response.data.todo
+        payload: response.data
       });
     });
   }

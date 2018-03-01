@@ -5,7 +5,7 @@ import * as actions from '../actions/posts_actions'
 
 class PostShow extends Component {
   componentDidMount() {
-    const id = this.props.params.id;
+    let id = this.props.params.id;
     this.props.fetchPost(id);
     console.log(this.props);
 
@@ -15,14 +15,20 @@ class PostShow extends Component {
 // post that way by plugging it in to that route a different way
   renderPost() {
     const {post} = this.props;
-    console.log(this.props.posts);
+    console.log(this.props.post);
     return(
-      <div>
-        <div className="postTitle">{post.title}</div>
-        <div className="contentTitle">{post.content}</div>
-        </div>
+      <div className="post-display">
+        <div className="post-display-title">{post.title}</div>
+        <div className="post-display-content">{post.content}</div>
+      </div>
       );
-    }
+  }
+
+  onDeleteClick() {
+    let id = this.props.post._id;
+    console.log(id);
+    this.props.deletePost(id);
+  }
 
 
   render() {
@@ -38,6 +44,7 @@ class PostShow extends Component {
         <Link to="/display" className="btn btn-primary">Back To Display</Link>
         <button
           className="btn btn-dnager pull-xs-right"
+          onClick={this.onDeleteClick.bind(this)}
         >
           Delete Task
         </button>

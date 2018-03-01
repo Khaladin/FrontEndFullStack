@@ -47,3 +47,19 @@
   color: #012345;
   margin-top: 20%;
 }
+
+.post-display {
+  margin-top: 6rem;
+}
+
+.post-display-title {
+  margin: 4rem 8rem;
+  font-size: 3.4rem;
+  text-align:center;
+  border-bottom: 1px solid;
+}
+
+.post-display-content {
+  font-size: 2.8rem;
+  padding-top: 2rem;
+}
