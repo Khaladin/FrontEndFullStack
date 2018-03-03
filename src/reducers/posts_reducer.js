@@ -8,7 +8,7 @@ const initialState = {
 export default function(state = initialState, action) {
   switch(action.type) {
     case POST_TODO:
-      return {...state}
+      return {...state};
       case FETCH_POSTS:
         return {...state, activePosts: action.payload};
       case FETCH_POST:

@@ -8,7 +8,7 @@ class NewPost extends Component {
   constructor(props) {
     super(props)
 
-    this.onSubmit = this.onSubmit.bind(this)
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
   renderField(field) {
@@ -28,13 +28,12 @@ class NewPost extends Component {
   }
 
   onSubmit(values) {
-    this.props.postTodo(values, () => {
-      this.props.history.push('/display');
-    });
+    this.props.postTodo(values);
   }
 
   render() {
     const { handleSubmit, fields: { title, content }} = this.props;
+
 
     return (
       <div>
@@ -57,6 +56,10 @@ class NewPost extends Component {
       </div>
     );
   }
+}
+
+function mapStateToProps(state) {
+  return {email: state.auth.email};
 }
 
 NewPost = reduxForm({

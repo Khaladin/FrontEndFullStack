@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Link} from  'react-router';
+import {Link, BrowserHistory} from  'react-router';
 import * as actions from '../actions/posts_actions'
 
 class PostShow extends Component {
+
   componentDidMount() {
     let id = this.props.params.id;
     this.props.fetchPost(id);
-    console.log(this.props);
 
   }
 
@@ -26,8 +26,9 @@ class PostShow extends Component {
 
   onDeleteClick() {
     let id = this.props.post._id;
-    console.log(id);
-    this.props.deletePost(id);
+    this.props.deletePost(id, () => {
+      this.props.history.push('/display');
+    });
   }
 
 
@@ -42,12 +43,14 @@ class PostShow extends Component {
     return(
       <div>
         <Link to="/display" className="btn btn-primary">Back To Display</Link>
-        <button
-          className="btn btn-dnager pull-xs-right"
-          onClick={this.onDeleteClick.bind(this)}
-        >
-          Delete Task
-        </button>
+        <Link to="/display">
+          <button
+            className="btn btn-dnager pull-xs-right"
+            onClick={this.onDeleteClick.bind(this)}
+            >
+            Delete Task
+          </button>
+        </Link>
         <div>
           {this.renderPost()}
         </div>

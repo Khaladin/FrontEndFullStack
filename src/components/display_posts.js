@@ -13,7 +13,7 @@ class DisplayPosts extends Component {
 
   renderPosts() {
     const {posts} = this.props;
-    console.log(this.props.posts);
+    console.log(localStorage.email);
     return posts && posts.map( todos => {
       return (
         <li className="list-group-item" key={todos._id}>
@@ -27,14 +27,15 @@ class DisplayPosts extends Component {
   }
 
   render() {
+
     return (
       <div>
         <div className="text-xs-right">
           <Link className="btn btn-primary" to="/create/post">
-            Add a Post!
+            Add a Task!
           </Link>
         </div>
-        <h2 className="display-title">Posts</h2>
+        <h2 className="display-title">Tasks</h2>
         <ul className="list-group">
           <div>
             {this.renderPosts()}
@@ -46,7 +47,7 @@ class DisplayPosts extends Component {
 }
 
 function mapStateToProps(state) {
-  return {posts: state.posts.activePosts};
+  return {...state, posts: state.posts.activePosts};
 }
 
 export default connect(mapStateToProps, actions)(DisplayPosts);

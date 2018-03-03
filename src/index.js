@@ -1,10 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
 import {Router, Route, IndexRoute, browserHistory} from 'react-router';
-import reduxThunk from 'redux-thunk';
-import promise from 'redux-promise';
 
 import App from './components/app';
 import Signin from './components/auth/signin';
@@ -16,11 +13,12 @@ import Welcome from './components/welcome';
 import NewPost from './components/posts';
 import DisplayPosts from './components/display_posts';
 import DisplayPost from './components/display_post';
-import reducers from './reducers';
 import {AUTH_USER} from './actions/types';
 
-const createStoreWithMiddleware = applyMiddleware(reduxThunk, promise)(createStore);
-const store = createStoreWithMiddleware(reducers);
+import createStore from './store';
+
+const store = createStore();
+
 
 const token = localStorage.getItem('token');
 // If we have a token, consider the user to be signed in
