@@ -3,20 +3,12 @@ import { browserHistory } from 'react-router';
 import {POST_TODO, FETCH_POSTS, FETCH_POST, ROOT_URL, DELETE_POST} from './types';
 
 export function postTodo(values) {
-  return function(dispatch, getState) {
-  const email = getState().auth.email;
-  const postValues = {...values, email}
+  return function(dispatch) {
 
-  axios.post(`${ROOT_URL}/newpost`, postValues)
+  axios.post(`${ROOT_URL}/newpost`, values)
     .then(response => {
-
+      browserHistory.push('/display');
     });
-
-    return {
-      type: POST_TODO,
-      payload: request
-    };
-          // this.props.history.push('/display');
   }
 }
 

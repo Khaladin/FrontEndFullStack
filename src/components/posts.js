@@ -28,7 +28,8 @@ class NewPost extends Component {
   }
 
   onSubmit(values) {
-    this.props.postTodo(values);
+    const { email } = this.props;
+    this.props.postTodo({...values, email});
   }
 
   render() {
@@ -59,7 +60,9 @@ class NewPost extends Component {
 }
 
 function mapStateToProps(state) {
-  return {email: state.auth.email};
+  return {
+    email: state.auth.email,
+  };
 }
 
 NewPost = reduxForm({
@@ -68,6 +71,6 @@ NewPost = reduxForm({
 
 })(NewPost);
 
-NewPost = connect(null, actions)(NewPost);
+NewPost = connect(mapStateToProps, actions)(NewPost);
 
 export default NewPost;

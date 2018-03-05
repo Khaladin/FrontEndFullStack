@@ -12,18 +12,20 @@ class DisplayPosts extends Component {
 
 
   renderPosts() {
+    const {email} = this.props.auth;
     const {posts} = this.props;
-    console.log(localStorage.email);
-    return posts && posts.map( todos => {
-      return (
-        <li className="list-group-item" key={todos._id}>
-          <Link to={`/display/${todos._id}`}>
-            <div className="post-title">{todos.title}</div>
-            <div className="post-content">{todos.content}</div>
-          </Link>
-        </li>
-      );
-    });
+
+    return posts && posts.filter(userName => userName.creator === email)
+      .map(todos => {
+        return (
+          <li className="list-group-item" key={todos._id}>
+              <Link to={`/display/${todos._id}`}>
+                <div className="post-title">{todos.title}</div>
+                <div className="post-content">{todos.content}</div>
+              </Link>
+          </li>
+        );
+      });
   }
 
   render() {
